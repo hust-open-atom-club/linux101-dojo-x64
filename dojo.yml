@@ -6,3 +6,7 @@ type: tools
 
 award:
   emoji: linux
+
+modules:
+  - id: "paths"
+#   icon: XXX
