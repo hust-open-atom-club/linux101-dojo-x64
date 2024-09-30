@@ -1,0 +1,30 @@
+#!/opt/pwn.college/bash
+
+NEEDED="/"
+
+if [ "$PWD" != "$NEEDED" ]
+then
+	echo -e "不正确..."
+	echo "你目前不在 $NEEDED 目录中"
+	echo '请使用 cd 工具来切换到正确目录'
+	exit 1
+fi
+
+if [ "${0:0:1}" == "/" ]
+then
+	echo -e "不正确..."
+	echo "你使用了绝对路径来调用这个挑战关卡。但这个挑战关卡需要使用相对路径！"
+	exit 1
+fi
+
+if [ "${0:0:1}" == "." ]
+then
+	echo -e "不正确..."
+	echo "这个挑战必须使用以字母开头的相对路径来调用！"
+	exit 1
+fi
+
+echo -e "正确！！！"
+echo "$0 是相对路径，使用正确目录调用"
+echo "你的 flag 如下所示："
+/bin/cat /flag

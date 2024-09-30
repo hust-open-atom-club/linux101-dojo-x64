@@ -1,0 +1,50 @@
+#!/opt/pwn.college/bash
+
+# TODO: add pokemon text art
+
+RANDOM=$(cksum /flag  | awk '{print $1}')
+CANDIDATES=(
+	"/tmp"
+	"/var"
+	"/etc"
+	"/sys"
+	"/proc/$PPID"
+	"/proc/$PPID/fd"
+	"/usr/bin"
+	"/var/log"
+	"/sys/kernel"
+	"/etc/apt/sources.list.d"
+	"/usr/include"
+	"/usr/share/zoneinfo/posix/Asia"
+	"/usr/share/doc"
+	"/usr/share/doc/fontconfig"
+	"/usr/share/build-essential"
+	"/var/lib/apt/lists"
+)
+NEEDED=${CANDIDATES[ $RANDOM % ${#CANDIDATES[@]} ]}
+
+while [[ ! -d "$NEEDED" ]]
+do
+	NEEDED=${CANDIDATES[ $RANDOM % ${#CANDIDATES[@]} ]}
+done
+
+if [ "$PWD" != "$NEEDED" ]
+then
+	echo -e "不正确..."
+	echo "你目前不在 $NEEDED 目录中"
+	echo '请使用 cd 工具来切换到正确目录'
+	exit 1
+fi
+
+if [ "${0:0:1}" != "/" ]
+then
+	echo -e "不正确..."
+	echo "你并没有使用绝对路径调用该挑战关卡！"
+	echo "绝对路径起始于文件系统根目录(/)，因此程序以 / 为起始。"
+	exit 1
+fi
+
+echo -e "正确！！！"
+echo "$0 是绝对路径，使用正确目录调用"
+echo "你的 flag 如下所示："
+/bin/cat /flag

@@ -1,10 +1,19 @@
 name: 理解路径
+
+challenges:
+
+  - id: "absolute"
+    name: 绝对路径
+
+  - id: "absolute-cwd"
+    name: 绝对路径之当前工作目录
+
+  - id: "relative"
+    name: 相对路径
+
 resources:
 - name: Resources
   type: markdown
   content: |
     - [PATH 变量](https://www.linfo.org/path_env_var.html)
 
-challenges:
-- id: "absolute"
-  name: 绝对路径
