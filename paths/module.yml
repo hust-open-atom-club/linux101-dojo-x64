@@ -11,6 +11,9 @@ challenges:
   - id: "relative"
     name: 相对路径
 
+  - id: "relative-dot"
+    name: 相对路径之 . 与 ..
+
 resources:
 - name: Resources
   type: markdown
