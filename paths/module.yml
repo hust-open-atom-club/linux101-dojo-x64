@@ -8,6 +8,9 @@ challenges:
   - id: "absolute-cwd"
     name: 绝对路径之当前工作目录
 
+  - id: "boot-and-tmp"
+    name: 路径切换
+
   - id: "relative"
     name: 相对路径
 
