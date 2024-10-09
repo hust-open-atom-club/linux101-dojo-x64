@@ -1,0 +1,3 @@
+#!/bin/bash
+
+fold -s <<< "看起来你启动了“hackers”命令，而不是启动带有“hackers”参数的“hello”命令！请确保你的命令是“hello”。"

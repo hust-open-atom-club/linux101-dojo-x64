@@ -1,0 +1,15 @@
+name: 你好黑客
+
+challenges:
+
+- id: hello
+  name: 命令简介
+
+- id: helloworld
+  name: 参数简介
+
+resources:
+  - name: Resources
+    type: markdown
+    content: |
+      - An [详尽的 Bash 教程](https://bash.cyberciti.biz/guide/Main_Page).
