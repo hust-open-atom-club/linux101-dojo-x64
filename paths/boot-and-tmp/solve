@@ -37,7 +37,7 @@ EXPECTED_DIR2="/tmp"
 
 if [ "$OLDPWD" != "$EXPECTED_DIR1" ] || [ "$PWD" != "$EXPECTED_DIR2" ]; then
     echo -e "不正确..."
-	echo "你需要先切换到 $EXPECTED_DIR1 目录，再切换到 $EXPECTED_DIR2 目录。"
+    echo "你需要先切换到 $EXPECTED_DIR1 目录，再切换到 $EXPECTED_DIR2 目录。"
     exit 1
 fi
 
