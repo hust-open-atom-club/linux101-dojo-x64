@@ -12,4 +12,4 @@ resources:
   - name: Resources
     type: markdown
     content: |
-      - An [详尽的 Bash 教程](https://bash.cyberciti.biz/guide/Main_Page).
+      - [详尽的 Bash 教程](https://bash.cyberciti.biz/guide/Main_Page).
