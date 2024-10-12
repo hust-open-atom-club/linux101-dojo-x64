@@ -11,5 +11,5 @@ modules:
   - id: "paths"
     icon: 0023_Ekans
 
-  - id: "Hello Hackers"
+  - id: "hello"
     icon: 0037_Vulpix
