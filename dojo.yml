@@ -9,4 +9,7 @@ award:
 
 modules:
   - id: "paths"
-    icon: Ekans
+    icon: 0023_Ekans
+
+  - id: "Hello Hackers"
+    icon: 0037_Vulpix
