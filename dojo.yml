@@ -8,8 +8,8 @@ award:
   emoji: linux
 
 modules:
-  - id: "paths"
-    icon: 0023_Ekans
-
   - id: "hello"
     icon: 0037_Vulpix
+    
+  - id: "paths"
+    icon: 0023_Ekans
