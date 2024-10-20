@@ -1,0 +1,9 @@
+#!/opt/pwn.college/bash
+
+echo "正在调用 'win'...."
+win
+
+if [ $? -ne 0 ]
+then
+	/bin/fold -s <<< "没有成功... 你真的正确设置 PATH 了吗？"
+fi

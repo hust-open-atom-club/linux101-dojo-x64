@@ -1,0 +1,16 @@
+#!/opt/pwn.college/bash
+
+if [ ! -d /tmp/pwn ]
+then
+	fold -s <<< "哎呀！/tmp/pwn 不是一个目录。请使用 'mkdir' 命令创建它！"
+	exit 1
+fi
+
+if [ ! -f /tmp/pwn/college ]
+then
+	fold -s <<< "哎呀！/tmp/pwn/college 文件不存在。请使用 'touch' 命令创建它！"
+	exit 2
+fi
+
+echo "成功！这是你的flag："
+cat /flag
