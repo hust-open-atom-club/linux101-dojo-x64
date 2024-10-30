@@ -1,0 +1,16 @@
+name: 深入思考 PATH
+challenges:
+- id: path
+  name: PATH 变量
+- id: path-win
+  name: 设置 PATH
+- id: path-win-yours
+  name: 添加命令
+- id: command-hijack
+  name: 劫持命令
+resources:
+- name: 资源
+  type: markdown
+  content: |
+    - [什么是 PATH？](https://www.linfo.org/path_env_var.html)
+
