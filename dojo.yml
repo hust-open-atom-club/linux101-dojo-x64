@@ -13,3 +13,6 @@ modules:
     
   - id: "paths"
     icon: 0023_Ekans
+
+  - id: "commands"
+    icon: 0875_Eiscue
