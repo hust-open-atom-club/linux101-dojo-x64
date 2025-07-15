@@ -1,6 +1,5 @@
 name: 学习和理解文档
 
-
 challenges:
 
   - id: "challenge-arg"
@@ -24,7 +23,7 @@ challenges:
   #缺少必要依赖库
   #- id: "builtins"
     #name: 获取内建命令的帮助
-  
+
 resources:
 - name: Resources
   type: markdown
