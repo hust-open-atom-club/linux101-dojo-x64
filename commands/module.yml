@@ -2,27 +2,6 @@ name: 深入理解命令
 allow_privileged: false
 
 challenges:
+
 - id: "cat"
   name: "cat: 不是宠物，而是命令！"
-- id: "cat-absolute"
-  name: "使用绝对路径的 cat"
-- id: "cat-chase"
-  name: "更多的 cat 练习"
-- id: "grep"
-  name: "在大海捞针中 grep"
-- id: "ls"
-  name: "列出文件"
-- id: "touch"
-  name: "创建文件"
-- id: "rm"
-  name: "删除文件"
-- id: "ls-a"
-  name: "隐藏文件"
-- id: "filesystem-quest"
-  name: "史诗般的文件系统探险"
-- id: "mkdir"
-  name: "创建目录"
-- id: "find"
-  name: "查找文件"
-- id: "ln-s"
-  name: "链接文件"
