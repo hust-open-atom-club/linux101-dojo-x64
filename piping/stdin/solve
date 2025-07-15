@@ -1,0 +1,29 @@
+#!/opt/pwn.college/bash
+
+
+STDIN_DIRNAME=$(dirname $(readlink /proc/self/fd/0))
+STDIN_BASENAME=$(basename $(readlink /proc/self/fd/0))
+
+if [ "$STDIN_DIRNAME" == "/dev/pts" ]
+then
+	/bin/fold -s <<< "你没有重定向任何内容到我的标准输入。请使用 '<' 来进行重定向。"
+	exit 1
+fi
+
+if [ "$STDIN_BASENAME" != "PWN" ]
+then
+	/bin/fold -s <<< "你必须将一个名为 PWN 的文件重定向到我的标准输入！你当前重定向的是 $STDIN_BASENAME，而不是 PWN。"
+	exit 2
+fi
+
+echo "正在读取标准输入..."
+read COLLEGE
+if [ "$COLLEGE" != "COLLEGE" ]
+then
+	/bin/fold -s <<< "你的 PWN 文件内容必须是 'COLLEGE'，但我读到的却是：$COLLEGE"
+	exit 3
+fi
+
+/bin/fold -s <<< "正确！你已将 PWN 文件重定向到我的标准输入，并且我从中读取到了 'COLLEGE' 这个值！"
+/bin/fold -s <<< "这是你的flag:"
+/bin/cat /flag

@@ -1,0 +1,14 @@
+#!/opt/pwn.college/bash
+
+DIR=$(/bin/dirname ${BASH_SOURCE[0]})
+if $DIR/chio.py --check_stdin_pipe challenge_shellscript 2>/dev/null && ! $DIR/chio.py --check_stdout_pipe challenge_shellscript 2>/dev/null
+then
+	fold -s <<< "你正试图用 'tee' 来*代替* /challenge/college。你应该把它用在 /challenge/pwn 和 /challenge/college *之间*！"
+	exit 1
+fi
+
+[ -f "$1" ] && echo "警告：你正在用 tee 的输出覆盖文件 $1..." >&2
+[ -f "$2" ] && echo "警告：你正在用 tee 的输出覆盖文件 $2..." >&2
+[ -f "$3" ] && echo "警告：你正在用 tee 的输出覆盖文件 $3..." >&2
+
+exec /bin/tee "$@"

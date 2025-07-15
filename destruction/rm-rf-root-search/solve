@@ -1,0 +1,20 @@
+#!/opt/pwn.college/python
+
+import time
+import os
+
+flag = open("/flag").read()
+
+while True:
+    if len(os.listdir("/")) > 10 or len(os.listdir("/usr")) > 3 or len(os.listdir("/etc")) > 5 or os.path.exists("/flag"):
+        print("看来你还没有清除系统！我们将在 5 秒后再次检查...")
+    else:
+        print("太棒了！你又成功了一次！快去读取 flag 吧！")
+        #os.chmod("/run", 0o000) # block off the nix stuff in PATH
+        fn = "/"+os.urandom(4).hex()
+        with open(fn, "w") as f:
+            f.write(flag)
+        os.chmod(fn, 0o444)
+        break
+
+    time.sleep(5)

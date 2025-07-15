@@ -1,0 +1,12 @@
+#!/opt/pwn.college/bash
+
+fold -s <<< "我可以给你 flag…… 但我不会给，直到这个进程退出。记住，你可以用 Ctrl-C 强制我退出。现在就试试！"
+
+function flag {
+	echo
+	fold -s <<< "干得漂亮！你用 Ctrl-C 中断了这个进程！这是你的 flag："
+	cat /flag
+}
+
+trap flag SIGINT
+sleep 6h

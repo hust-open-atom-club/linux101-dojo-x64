@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "bash: $(basename $0): command not found"
+echo
+fold -s <<< "看起来你在给变量赋多词值时没有加上引号！这导致 shell 把 $(basename $0) 当成了一个命令来执行。请给你的多词值加上引号！"

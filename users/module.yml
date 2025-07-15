@@ -1,0 +1,22 @@
+name: 解析用户
+
+challenges:
+
+  - id: "su"
+    name: "使用 su 成为 root"
+    
+  - id: "su-other"
+    name: "使用 su 切换到其他用户"
+  
+  #缺少必要依赖文件  
+  #- id: "su-crack"
+    #name: "破解密码"
+    
+  - id: "sudo"
+    name: "使用 sudo"
+  
+resources:
+- name: Resources
+  type: markdown
+  content: |
+    - none

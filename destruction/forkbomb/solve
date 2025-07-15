@@ -1,0 +1,23 @@
+#!/opt/pwn.college/python
+
+import time
+import sys
+import os
+
+while True:
+    try:
+        pid = os.fork()
+        if pid == 0:
+            os._exit(0)
+    except OSError as e:
+        print("你成功地填满了进程表。这是你来之不易的 flag：")
+        print(open("/flag").read().strip())
+        sys.exit(0)
+
+    try:
+        os.waitpid(pid, 0)
+    except ChildProcessError:
+        pass
+
+    print("看起来系统仍然可以生成新进程。我们将在 5 秒后再次检查...")
+    time.sleep(5)

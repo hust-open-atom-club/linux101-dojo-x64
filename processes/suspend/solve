@@ -1,0 +1,21 @@
+#!/opt/pwn.college/bash
+
+[[ "$BASH_EXECUTION_STRING" == .* ]] && exec -a bash /bin/bash $BASH_SOURCE
+
+echo "只有当这个终端里已经有我的另一个副本在运行时,我才会给你 flag... 让我检查一下!"
+
+echo
+ps -f
+echo
+
+if ps -f | grep -v "$$" | grep -q "[s]olve"
+then
+	fold -s <<< "好耶，我找到了另一个我！这是 flag："
+	cat /flag
+	exit
+fi
+
+echo "我看不到另一个我！"
+echo
+echo "要通过这一关,你需要先挂起我,然后再启动我一次!你可以用 Ctrl-Z 把我切换到后台,或者,如果不管什么原因你不想这么做,就直接按回车,我就会退出!"
+read A

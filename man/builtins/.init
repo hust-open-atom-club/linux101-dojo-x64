@@ -1,0 +1,27 @@
+#!/bin/bash
+
+
+exec &> /tmp/init.log
+
+DIR=$(/bin/dirname "${BASH_SOURCE[0]}")
+cd "$DIR"
+
+read -r FLAG_CONTENT < /flag
+FLA=$RANDOM
+FLB=$RANDOM
+
+ENV_FILE="/challenge/challenge.env"
+echo "export FLA=$FLA" > "$ENV_FILE"
+echo "export FLB=$FLB" >> "$ENV_FILE"
+
+echo "$FLAG_CONTENT" > "/tmp/.$FLA-$FLB"
+
+FLAG_PIECE=$(tail -c+13 /flag | head -c 8)
+gcc -DSECRET_VALUE="\"$FLAG_PIECE\"" \
+    -I/usr/include/bash/builtins -I/usr/include/bash/include \
+    -I/usr/include/bash -I/usr/lib/bash \
+    -shared -fPIC -o .challenge.so challenge.c
+
+if [ $? -eq 0 ]; then
+    rm -f /challenge/challenge.c
+fi

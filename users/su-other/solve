@@ -1,0 +1,11 @@
+#!/bin/bash
+
+USER=$(whoami)
+
+if [ "$USER" == "zardus" ]
+then
+	echo "恭喜你，你已经成为了 Zardus！这是你的 flag："
+	/challenge/.catflag
+else
+	echo "你现在是 $USER 用户... 在执行此命令之前，你必须成为 zardus 用户。"
+fi

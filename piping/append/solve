@@ -1,0 +1,25 @@
+#!/opt/pwn.college/bash
+
+exec 5>/dev/tty
+DIR=$(/bin/dirname ${BASH_SOURCE[0]})
+if ! $DIR/chio.py --check_stdout_path /home/hacker/the-flag --chio_info_fd 5 --chio_warn_fd 5 --chio_hint_fd 5 --chio_test_fd 5 --chio_pass_fd 5 --chio_fail_fd 5 --chio_hype_fd 5
+then
+	#fold -s > /dev/tty <<< "你没有将标准输出（stdout）重定向到 /home/hacker/the-flag！请以追加模式重定向输出后重新运行我！"
+	exit 1
+fi
+
+fold -s > /dev/tty <<< "我将把flag分两部分写入 /home/hacker/the-flag 文件！我会直接将第一部分写入该文件，然后，我会将第二部分写入到标准输出（stdout）（如果它正指向该文件的话）。如果你使用追加模式重定向输出，那么第二次的写入就会追加到第一次写入的内容之后（而不是覆盖它），这样你就能得到完整的flag了！"
+
+(
+	echo " | "
+	echo "\\|/ This is the first half:"
+	echo " v "
+	head -c16 /flag
+) > /home/hacker/the-flag
+
+tail -c+17 /flag
+echo "                              ^"
+echo "     that is the second half /|\\"
+echo "                              |"
+echo
+fold -s <<< "如果你在上面只看到了后半部分，那就说明你使用了*截断*模式（>）而不是*追加*模式（>>），因此，通过 stdout 写入的后半部分覆盖了直接写入文件的初始前半部分。请尝试追加模式！"

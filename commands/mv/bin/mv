@@ -1,0 +1,36 @@
+#!/opt/pwn.college/bash
+
+if [ "${#@}" -ne 2 ]
+then
+	echo "错误：在本次挑战中，请按照  mv 源文件 目标文件 的格式使用  mv 命令"
+	exit 1
+fi
+
+if ! SRC_REALPATH=$(realpath "$1" 2>&1)
+then
+	echo "错误：你的源文件路径 ($1) 中包含一个不存在的目录。"
+	exit 1
+fi
+
+if ! DST_REALPATH=$(realpath "$2" 2>&1)
+then
+	echo "错误：你的目标路径 ($2) 中包含一个不存在的目录。"
+	exit 1
+fi
+
+
+if [ "$SRC_REALPATH" != "/flag" ]
+then
+	echo "错误：请确保将 flag 文件（/flag）"
+	echo "指定为你的源文件！（你指定的是 $SRC_REALPATH）。"
+	exit 2
+fi
+
+if [ "$DST_REALPATH" != "/tmp/hack-the-planet" ]
+then
+	echo "错误：请确保你的目标路径是 /tmp/hack-the-planet！"
+	exit 2
+fi
+
+echo "正确！正在执行 mv $1 $2"
+/bin/mv "$1" "$2"

@@ -1,0 +1,22 @@
+name: test the chio
+on: push
+jobs:
+  smoketest:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+      - name: Install test dependencies
+        run: |
+          pip install pytest pytest-dependency ipython pwntools
+          pip install -r requirements.txt
+          sudo apt-get install -y socat python3-asteval python3-psutil
+
+      - name: Run tests
+        run: |
+          echo "TEST_FLAG" | sudo tee /flag
+          pytest -vrpP --maxfail=1 ./test.py

@@ -16,3 +16,28 @@ modules:
 
   - id: "commands"
     icon: 0875_Eiscue
+  
+  - id: "man"
+
+  - id: "globbing"
+  
+  - id: "piping"
+  
+  - id: "variables"
+  
+  - id: "data"
+  
+  - id: "processes"
+  
+  - id: "permissions"
+  
+  - id: "users"
+  
+  - id: "chaining"
+  
+  - id: "path"
+  
+  #缺少必要依赖库
+  #- id: "shenanigans"
+  
+  - id: "destruction"

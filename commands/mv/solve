@@ -1,0 +1,17 @@
+#!/opt/pwn.college/bash
+
+if ! [ -f /tmp/hack-the-planet ]
+then
+	fold -s <<< "哎呀！/tmp/hack-the-planet 文件不存在..."
+	exit 1
+fi
+
+if ! grep -q "pwn.college{" /tmp/hack-the-planet
+then
+	fold -s <<< "哎呀！看起来有某个不正确的文件被移动到了 /tmp/hack-the-planet；文件里面没有 flag！"
+	exit 1
+fi
+
+fold -s <<< "恭喜！你已成功将 flag 移动到 /tmp/hack-the-planet！flag 如下："
+cat /tmp/hack-the-planet
+echo

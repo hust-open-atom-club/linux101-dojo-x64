@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [[ "${BASH_ARGV[0]}" == */* ]]
+then
+	printf "看起来你正试图用一个命令的绝对路径来运行 'man'.\n"
+	printf "这不是 man 的工作方式! man 会引用一个集中的手册页数据库,\n"
+	printf "并根据名称(而不是文件路径)来获取手册.\n"
+	printf "因此, 要调出 '/bin/ls' 这个程序的手册页, 你应该运行 'man ls',\n"
+	printf "而不是 'man /bin/ls'.\n"
+	exit 1
+fi
+
+/usr/bin/man "$@"
