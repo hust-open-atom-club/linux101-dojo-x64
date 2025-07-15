@@ -4,26 +4,7 @@ challenges:
 
   - id: "challenge-arg"
     name: 从文档中学习
-  
-  - id: "challenge-arg-arg"
-    name: 学习复杂用法
-  
-  - id: "man"
-    name: 阅读手册
-  
-  - id: "man-search"
-    name: 在手册中搜索
-  
-  - id: "man-search-man"
-    name: 搜索手册本身
-  
-  - id: "help"
-    name: 有用的程序
-  
-  #缺少必要依赖库
-  #- id: "builtins"
-    #name: 获取内建命令的帮助
-  
+ 
 resources:
 - name: Resources
   type: markdown
