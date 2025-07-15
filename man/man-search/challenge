@@ -1,0 +1,40 @@
+#!/opt/pwn.college/python
+
+import random
+import sys
+import re
+import os
+
+def randbytes(n):
+	return bytes(RND.randrange(0,256) for _ in range(n))
+
+def generate_args():
+	args = set()
+	for i in range(RND.randrange(500,1000)):
+		letters = re.sub("[^a-z]", "", randbytes(0x200).decode('latin1')) + "ab"
+		opt = letters[:RND.randrange(1,8)]
+		args.add("--"+opt if len(opt)>1 else "-"+opt)
+
+	arg_list = sorted(args)
+	RND.shuffle(arg_list)
+	return arg_list
+
+print("正在初始化...")
+
+FLAG = open("/flag").read().strip()
+RND = random.Random(int(re.sub("[^0-9]", "", FLAG) + "1"))
+ARGS = generate_args()
+FLAG_OPT = ARGS[RND.randrange(300,len(ARGS))]
+
+if len(sys.argv) == 1:
+	print("用法不正确!请阅读挑战的手册页!")
+elif sys.argv[1] == "--fortune":
+	os.system("/usr/games/fortune")
+elif sys.argv[1] == "--version":
+	print("我就是我所需要的那个版本!")
+elif sys.argv[1] == FLAG_OPT:
+	print("用法正确!你的 flag 是: ", FLAG)
+elif sys.argv[1] in ARGS:
+	print("这是一个有效的参数,但不是那个能让你得到 flag 的参数!继续在手册页里搜索吧!")
+else:
+	print("用法不正确!请阅读挑战的手册页!")

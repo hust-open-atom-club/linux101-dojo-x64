@@ -1,0 +1,47 @@
+#!/opt/pwn.college/python
+
+import argparse
+import random
+import sys
+import re
+import os
+
+FLAG = open("/flag").read().strip()
+N = int((re.sub("[^0-9]", "", FLAG[FLAG.index('{'):]) + "1")[:3])
+
+parser = argparse.ArgumentParser("a challenge to make you ask for help")
+parser.add_argument("--fortune", action='store_true', help="read your fortune")
+parser.add_argument("-v", "--version", action='store_true', help="get the version number")
+parser.add_argument("-g", "--give-the-flag", type=int, help="get the flag, if given the correct value")
+parser.add_argument("-p", "--print-value", action='store_true', help="print the value that will cause the -g option to give you the flag")
+
+if (
+	"-g" in sys.argv and "-p" in sys.argv and
+	sys.argv.index("-g") + 1 == sys.argv.index("-p")
+):
+	print("你将 -p 作为了 -g 选项的参数!")
+	print("请仔细阅读用法说明: -g 选项需要一个它自己的数字参数.")
+	sys.exit(1)
+
+args = parser.parse_args()
+
+if args.fortune:
+	os.system("/usr/games/fortune")
+	sys.exit(0)
+
+if args.version:
+	print("我就是我所需要的那个版本!")
+	sys.exit(0)
+
+if args.give_the_flag is not None:
+	if args.give_the_flag == N:
+		print("用法正确!你的 flag 是: ", FLAG)
+	else:
+		print("数字不正确!请查看程序的帮助信息.")
+	sys.exit(0)
+
+if args.print_value:
+	print("秘密数值是: ", N)
+	sys.exit(0)
+
+print("未指定任何选项.")
