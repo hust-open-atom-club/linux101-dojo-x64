@@ -1,0 +1,12 @@
+#!/opt/pwn.college/bash
+
+if [ "$PWD" != "/challenge" ]
+then
+	fold -s <<< "你必须在 /challenge 这个工作目录下运行我。请尝试将你的工作目录切换到 /challenge，然后再重新运行我。"
+elif [ ! -f /tmp/.good_cd ]
+then
+	fold -s <<< "你通过某种方式将工作目录切换到了 /challenge ,但并未使用 'cd' 和通配符.请重试."
+else
+	fold -s <<< "你在 /challenge 工作目录下运行了我！这是你的flag："
+	cat /flag
+fi

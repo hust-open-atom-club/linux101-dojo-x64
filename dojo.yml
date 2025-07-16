@@ -19,3 +19,5 @@ modules:
 
   - id: "man"
     icon: 0875_Eiscue
+    
+  - id: "globbing"
