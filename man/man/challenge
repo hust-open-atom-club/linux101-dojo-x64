@@ -1,0 +1,21 @@
+#!/opt/pwn.college/python
+
+import sys
+import re
+import os
+
+FLAG = open("/flag").read().strip()
+LETTERS = re.sub("[^a-z]", "", FLAG[FLAG.index('{'):]) + "ab"
+NUMBERS = re.sub("[^0-9]", "", FLAG[FLAG.index('{'):]) + "1"
+OPT,ARG = LETTERS[:6], NUMBERS[:3]
+
+if len(sys.argv) == 1:
+	print("用法不正确!请阅读挑战的手册页!")
+elif sys.argv[1] == "--fortune":
+	os.system("/usr/games/fortune")
+elif sys.argv[1] == "--version":
+	print("我就是我所需要的那个版本!")
+elif sys.argv[1:] == ["--"+OPT, ARG]:
+	print("用法正确!你的 flag 是: ", FLAG)
+else:
+	print("用法不正确!请阅读挑战的手册页!")
