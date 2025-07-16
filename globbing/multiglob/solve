@@ -1,0 +1,46 @@
+#!/opt/pwn.college/bash
+
+read -a ARGS < /tmp/.last_arg
+
+if [ "$PWD" != "/challenge/files" ]
+then
+	fold -s <<< "错误：请在 /challenge/files 工作目录下运行本程序！"
+	exit 1
+fi
+
+if [ "${#ARGS[@]}" -eq 0 ]
+then
+	fold -s <<< "错误：你运行此命令时未提供任何参数！请提供一个参数来运行我。"
+	exit 2
+fi
+
+if [ "${#ARGS[@]}" -gt 1 ]
+then
+	fold -s <<< "错误:你运行此命令时提供了超过1个参数(在通配符扩展前)!请提供一个参数来运行我."
+	exit 3
+fi
+
+if [[ "${ARGS[0]}" != *"*"* ]]
+then
+	fold -s <<< "错误：你没有使用通配符..."
+	exit 4
+fi
+
+if [[ "${#ARGS[0]}" -gt 3 ]]
+then
+	fold -s <<< "错误：你的参数太长了！它必须是3个字符或更少。"
+	exit 4
+fi
+
+read EXPECTED < <(echo *p*)
+ASTR=$@
+
+if [ "$EXPECTED" == "$ASTR" ]
+then
+	fold -s <<< "你做对了！这是你的flag！"
+	cat /flag
+else
+	fold -s <<< "你的通配符没有扩展为所要求的文件 ($EXPECTED)。"
+	fold -s <<< "它实际扩展为了："
+	echo "$ASTR"
+fi

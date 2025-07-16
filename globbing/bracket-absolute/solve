@@ -1,0 +1,45 @@
+#!/opt/pwn.college/bash
+
+read -a ARGS < /tmp/.last_arg
+
+if [ "$PWD" != "$HOME" ]
+then
+	fold -s <<< "错误：请在 $HOME 工作目录下运行本程序！"
+	exit 1
+fi
+
+if [ "${#ARGS[@]}" -eq 0 ]
+then
+	fold -s <<< "错误：你运行此命令时未提供任何参数！请提供一个参数来运行我。"
+	exit 2
+fi
+
+if [ "${#ARGS[@]}" -gt 1 ]
+then
+	fold -s <<< "错误:你运行此命令时提供了超过1个参数(在通配符扩展前)!请提供一个参数来运行我."
+	exit 3
+fi
+
+if [[ "${ARGS[0]}" != *"["* ]]
+then
+	fold -s <<< "错误：你没有使用方括号通配符..."
+	exit 4
+fi
+
+if [[ "${ARGS[0]}" != *"/challenge/files/"* ]]
+then
+	fold -s <<< "错误：你需要将文件的路径作为通配参数的一部分，因为 文件 位于一个与你当前工作目录不同的目录中！"
+	[[ "${ARGS[0]}" == *"/challenge/"* ]] && fold -s <<< "提示：你正试图指定位于 $(dirname ${ARGS[0]}) 目录中的文件，但这些文件实际上在 /challenge/files 目录中。"
+
+	exit 5
+fi
+
+
+if [[ "$1" == *"/file_a" ]] && [[ "$2" == *"/file_b" ]] && [[ "$3" == *"/file_h" ]] && [[ "$4" == *"/file_s" ]]
+then
+	fold -s <<< "你做对了！这是你的flag!"
+	cat /flag
+else
+	fold -s <<< "你的通配符没有扩展为所要求的文件（/challenge/files/file_b、/challenge/files/file_a、/challenge/files/file_s 和 /challenge/files/file_h）。它实际扩展为了："
+	echo "$@"
+fi

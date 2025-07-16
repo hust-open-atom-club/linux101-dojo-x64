@@ -1,0 +1,4 @@
+#!/opt/pwn.college/bash
+
+echo "正确！这是你的flag:"
+cat /flag

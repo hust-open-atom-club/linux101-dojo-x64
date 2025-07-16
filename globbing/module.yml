@@ -1,0 +1,39 @@
+name: 文件通配
+
+challenges:
+
+  - id: "asterisk"
+    name: "使用 * 进行匹配"
+  
+  - id: "question"
+    name: "使用 ? 进行匹配"
+  
+  - id: "bracket"
+    name: "使用 [] 进行匹配"
+  
+  - id: "bracket-absolute"
+    name: "使用 [] 匹配路径"
+  
+  - id: "multiglob"
+    name: "多个通配符"
+  
+  - id: "mixing"
+    name: "混合使用通配符"
+  
+  - id: "unmatching"
+    name: "排除型通配"
+  
+  - id: "tab-completion"
+    name: "Tab 键补全"
+  
+  - id: "tab-completion-options"
+    name: "Tab 键补全的多个选项"
+  
+  - id: "tab-completion-command"
+    name: "命令的 Tab 键补全"
+  
+resources:
+- name: Resources
+  type: markdown
+  content: |
+    - Bash 参考手册中的[关于 Shell 扩展的章节](https://www.gnu.org/software/bash/manual/html_node/Shell-Expansions.html)会很有帮助。
