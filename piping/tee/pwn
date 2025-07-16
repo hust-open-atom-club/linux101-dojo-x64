@@ -1,0 +1,24 @@
+#!/opt/pwn.college/bash
+
+echo "正在处理..." > /dev/tty
+sleep 1
+DIR=$(/bin/dirname ${BASH_SOURCE[0]})
+if ! $DIR/chio.py --check_stdout_pipe tee 2>/dev/null && ! $DIR/chio.py --check_stdout_pipe challenge_shellscript 2>/dev/null
+then
+	fold -s <<< "你必须将 /challenge/pwn 的输出通过管道传送给 /challenge/college（或用于调试的 tee）。" > /dev/tty
+	exit 1
+fi
+
+SECRET_VAL=$(tail -c+13 /flag | head -c8)
+if [ "$1" != "--secret" ] || [ "$2" != "$SECRET_VAL" ]
+then
+	echo "用法: $0 --secret [SECRET_ARG]"
+	echo ""
+	echo "SECRET_ARG 的值应该是 \"$SECRET_VAL\""
+	sleep 8
+	exit 2
+fi
+
+echo "正确！正在将密码值传递给 /challenge/college..." > /dev/tty
+echo "SUPERSECRET:$(tail -c+20 /flag | head -c4)"
+sleep 8

@@ -1,0 +1,12 @@
+#!/opt/pwn.college/bash
+
+[ -f /challenge/.the ] || exit
+[ -f /challenge/.planet ] || exit
+read THE < /challenge/.the
+read PLANET < /challenge/.planet
+
+if [ "$THE" == "$PLANET" ]
+then
+	fold -s <<< "恭喜，你已成功将数据复制并输入到两个程序中！这是你的flag:"
+	cat /flag
+fi

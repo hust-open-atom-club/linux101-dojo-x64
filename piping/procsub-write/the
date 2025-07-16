@@ -1,0 +1,11 @@
+#!/opt/pwn.college/bash
+
+read CORRECT < /challenge/.challenge-key
+read ATTEMPT < <(tail -n 1)
+
+if [ "$CORRECT" == "$ATTEMPT" ]
+then
+	echo "$CORRECT" > /challenge/.the
+else
+	fold -s >&2 <<< "你确定你正确地将输入重定向到 '/challenge/the' 了吗？"
+fi
