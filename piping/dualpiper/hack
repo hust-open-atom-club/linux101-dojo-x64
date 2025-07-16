@@ -1,0 +1,24 @@
+#!/opt/pwn.college/bash
+
+if [[ "$1" =~ "/dev/fd"* ]]
+then
+	printf "你似乎把像 '>(something)' 这样的内容作为*参数*传递给了 /challenge/hack，\n而不是将 /challenge/hack 的输出/错误重定向到 '>(something)'。\n\n请记住，'cmd1 >(cmd2)' 并*不会*重定向 cmd1 的输出；\n它做的是：运行 cmd2，将一个文件连接到其标准输入，然后将该文件的路径作为参数传递给 cmd1。\n\n如果你想将 cmd1 的输出重定向到那个文件，你需要这样做：'cmd1 > >(cmd2)'，这等同于 'cmd1 | cmd2'。\n"
+fi
+
+if [ -t 1 ] || [ -f /dev/fd/1 ]
+then
+	fold -s <<< "你必须将我的标准输出重定向到 '/challenge/planet'！"
+else
+	printf "这些机密数据必须通过我的标准输出直接送达 /challenge/planet。\n不要试图复制粘贴它；它变化得太快了。\n"
+	cat /challenge/.challenge-key-stdout
+fi
+
+if [ -t 2 ] || [ -f /dev/fd/2 ]
+then
+	fold -s >&2 <<< "你必须将我的标准错误重定向到 '/challenge/the'！"
+else
+	printf "这些机密数据必须通过我的标准错误直接送达 /challenge/the。\n不要试图复制粘贴它；它变化得太快了。\n" >&2s
+	cat /challenge/.challenge-key-stderr >&2
+fi
+
+sleep 1

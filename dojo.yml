@@ -21,3 +21,5 @@ modules:
     icon: 0875_Eiscue
     
   - id: "globbing"
+  
+  - id: "piping"

@@ -1,0 +1,20 @@
+#!/opt/pwn.college/bash
+
+if [ ! -t 2 ] && [ "$(realpath --relative-to=/proc/$$ /proc/$$/fd/2)" != "$(realpath --relative-to=/proc/$PPID /proc/$PPID/fd/2)" ]
+then
+	PTS=$(
+		ps -g $(ps -p "$$" -o sid=) --no-headers -o pid |
+		xargs -IPID -n1 ls /proc/PID/fd/ -l 2>/dev/null |
+		grep pts | sed -e "s/.* //" | sort -u | tail -n1
+	)
+	printf "你正在重定向 */challenge/the 的*标准错误！\n你应该重定向的是 hack 的标准错误。\n\n这个操作必须在任何管道符（|）*之前*进行。\n管道符右侧的命令是一个独立的命令，其重定向设置与左侧的命令是分开的！\n" > $PTS
+fi
+
+read CORRECT < /challenge/.challenge-key-stderr
+read ATTEMPT < <(tail -n 1)
+if [ "$CORRECT" == "$ATTEMPT" ]
+then
+	cp /challenge/.challenge-key-solve /challenge/.the
+else
+	fold -s >&2 <<< "你确定你已将/challenge/hack的标准错误正确地重定向到/challenge/the了吗？"
+fi
