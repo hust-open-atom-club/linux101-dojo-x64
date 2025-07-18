@@ -1,0 +1,38 @@
+#!/opt/pwn.college/bash
+
+if [ -n "$COLLEGE" ]
+then
+	echo "不正确..."
+	/bin/fold -s <<< "你导出了 COLLEGE 变量。本次挑战要求你导出 PWN 变量，但不要导出 COLLEGE 变量！"
+	exit 1
+fi
+
+if [ -z "$PWN" ]
+then
+	echo "不正确..."
+	/bin/fold -s <<< "你没有导出 PWN 变量。本次挑战要求你导出 PWN 变量。"
+	exit 2
+fi
+
+if [ "$PWN" != "COLLEGE" ] && [ -f /tmp/.pwn-right ]
+then
+	echo "不正确..."
+	/bin/fold -s <<< "你在你的 shell 中正确设置了 PWN 变量，但你没有重新导出它，所以它的旧值被传递给了 $0 。你必须重新导出 PWN 变量！"
+	exit 3
+elif [ "$PWN" != "COLLEGE" ]
+then
+	echo "不正确..."
+	/bin/fold -s <<< "你导出了 PWN 变量，但它的值不正确。你必须将它设置为 'COLLEGE'。"
+	exit 4
+fi
+
+if [ ! -f /tmp/.college-right ]
+then
+	echo "不正确..."
+	/bin/fold -s <<< "你没有将 COLLEGE 变量设置为正确的值（它应该是 'PWN'）。请在运行此脚本前完成该设置！尽管它没有被导出，但在本次挑战中，我们有办法进行检查……"
+	exit 5
+fi
+
+echo "正确！"
+/bin/fold -s <<< "你已经导出了 PWN=COLLEGE，并且设置了但未导出 COLLEGE=PWN。干得漂亮！这是你的 flag："
+cat /flag
