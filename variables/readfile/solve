@@ -1,0 +1,7 @@
+#!/bin/bash
+
+/bin/fold -w $(/bin/tput cols) -s <<END
+你无法使用 /challenge/solve 来解决此挑战。
+要解决此挑战，你必须使用 "read" 内置命令，将 /challenge/read_me 文件直接读取到 PWN 变量中。
+当挑战检测到这个操作后，就会给你 flag！
+END

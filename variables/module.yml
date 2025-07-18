@@ -1,0 +1,34 @@
+name: Shell 变量
+
+challenges:
+
+  - id: "echo"
+    name: "打印变量"
+    
+  - id: "setvar"
+    name: "设置变量"
+    
+  - id: "setvar-multi"
+    name: "多词变量"
+    
+  - id: "export"
+    name: "导出变量"
+    
+  - id: "env"
+    name: "打印导出的变量"
+    
+  - id: "command-substitution"
+    name: "存储命令输出"
+    
+  - id: "read"
+    name: "读取输入"
+    
+  - id: "readfile"
+    name: "读取文件"
+  
+resources:
+- name: Resources
+  type: markdown
+  content: |
+    - Linux 文档计划有一节关于 [shell 变量](https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-5.html)的内容。
+

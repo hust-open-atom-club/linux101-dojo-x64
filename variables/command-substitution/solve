@@ -1,0 +1,24 @@
+#!/opt/pwn.college/bash
+
+if [ -t 1 ] || [ ! -f /tmp/subshell ]
+then
+	fold -s >&2 <<< "你没有通过命令替换来运行我! 请确保使用命令替换来运行本脚本."
+	exit 1
+elif [ ! -f /tmp/dstvar ]
+then
+	fold -s >&2 <<< '你似乎没有将输出读取到变量中…… 请确保将我的输出读取到一个变量里，例如：'
+	echo '    VAR_NAME=$(/challenge/solve)' >&2
+	exit 2
+fi
+
+[ -f /tmp/dstvar ] && read DSTVAR < /tmp/dstvar
+
+if [ "$DSTVAR" != "PWN" ]
+then
+	fold -s >&2 <<< "你正在将输出读取到 $DSTVAR 变量，但你应该将其读取到 PWN 变量。我将隐藏 flag！"
+	echo "pwn.college{REDACTED}"
+	exit 3
+fi
+
+fold -s >&2 <<< "恭喜！你已成功将 flag 读取到 PWN 变量中。现在把它输出并提交吧！"
+cat /flag
