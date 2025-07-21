@@ -1,0 +1,6 @@
+#!/bin/bash
+
+NEWNAME=/challenge/$RANDOM-solve-$RANDOM
+mv /challenge/solve $NEWNAME
+$NEWNAME &
+chmod 711 /challenge

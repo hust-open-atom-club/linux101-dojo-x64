@@ -1,0 +1,17 @@
+#!/opt/pwn.college/bash
+
+if [[ $(ps -o stat= -p $$) == *+* ]]
+then
+	echo "你把我启动在前台了！"
+	echo "你必须在后台启动我（通过在命令后追加 '&'）才能获得 flag！"
+	exit
+fi
+
+echo
+echo
+echo
+echo "好耶，你在后台启动了我！"
+echo "因此，这段文本可能会和你的 shell 提示符奇怪地重叠在一起，不过你现在应该已经习惯了……"
+echo
+fold -s <<< "总之！这是你的 flag！"
+cat /flag

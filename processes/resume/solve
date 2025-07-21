@@ -1,0 +1,14 @@
+#!/opt/pwn.college/bash
+
+function win {
+	fold -s <<< "我回来了！这是你的 flag："
+	cat /flag
+	fold -s <<< "别忘了按回车来退出我！"
+}
+
+trap win SIGCONT
+
+echo "让我们来练习恢复进程吧！"
+echo "用 Ctrl-Z 挂起我，然后用 'fg' 命令恢复我！或者直接按回车退出我！"
+read A
+echo "再见！"

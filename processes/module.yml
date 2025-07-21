@@ -1,0 +1,37 @@
+name: 进程与作业
+
+
+challenges:
+
+  - id: "ps"
+    name: 列出进程
+    
+  - id: "kill"
+    name: 终止进程
+    
+  - id: "int"
+    name: 中断进程
+    
+  - id: "suspend"
+    name: 挂起进程
+    
+  - id: "resume"
+    name: 恢复进程
+    
+  - id: "background"
+    name: 后台运行进程
+    
+  - id: "foreground"
+    name: 前台运行进程
+    
+  - id: "start-backgrounded"
+    name: 在后台启动进程
+    
+  - id: "exit-codes"
+    name: 进程退出码
+  
+resources:
+- name: Resources
+  type: markdown
+  content: |
+    - none

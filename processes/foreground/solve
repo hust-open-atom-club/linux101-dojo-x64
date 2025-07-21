@@ -1,0 +1,34 @@
+#!/opt/pwn.college/bash
+
+function resumed {
+	if [[ $(ps -o stat= -p $$) == *+* ]]
+	then
+		echo "你从挂起状态把我恢复到了前台！请先把我恢复到后台，"
+		echo "然后再从后台直接把我切换到前台（或者按回车，我就会退出）。"
+		read A
+		exit
+	fi
+
+	echo
+	echo
+	echo
+	echo "好耶，我现在在后台运行了！因此，这段文本可能会和你的 shell 提示符奇怪地重叠在一起。"
+	echo "别慌；多按几次Enter键，把这段文字滚动上去就行了。之后，用 'fg' 命令把我恢复到前台；我会等你的。"
+
+	until [[ $(ps -o stat= -p $$) == *+* ]]; do sleep 0.1; done
+
+	echo "太棒了！干得漂亮！我现在在前台运行了。"
+	echo "按回车键即可获得你的 flag！"
+	read A
+	cat /flag
+	exit
+}
+trap resumed SIGCONT
+
+[[ "$BASH_EXECUTION_STRING" == .* ]] && exec -a bash /bin/bash $BASH_SOURCE
+
+echo "要通过这一关，你需要先挂起我，在后台恢复这个被挂起的进程，"
+echo "然后在不重新挂起它的情况下直接把它切换到前台！"
+echo "你可以用 Ctrl-Z 挂起我（并用 'bg' 在后台恢复我），或者，"
+echo "如果不管什么原因你不想这么做，就直接按回车，我就会退出！"
+read A

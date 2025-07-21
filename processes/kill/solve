@@ -1,0 +1,10 @@
+#!/opt/pwn.college/bash
+
+if ps -ef | grep -q '[d]ont_solve'
+then
+	fold -s <<< "不行！/challenge/dont_solve 还在运行！你必须先终止它，我才能给你 flag！"
+	exit
+fi
+
+fold -s <<< "干得漂亮！这是你的flag："
+cat /flag
