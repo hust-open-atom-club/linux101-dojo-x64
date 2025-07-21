@@ -1,0 +1,3 @@
+#!/bin/bash
+
+/bin/fold -s <<< "在我所在的目录中寻找 flag！"
