@@ -39,3 +39,6 @@ modules:
     
   - id: "permissions"
     icon: 0118_Goldeen
+    
+  - id: "users"
+    icon: 0104_Cubone
