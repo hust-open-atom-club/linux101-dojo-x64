@@ -34,3 +34,6 @@ modules:
     
   - id: "processes"
     icon: 0122_MrMine
+    
+  - id: "permissions"
+    icon: 0118_Goldeen

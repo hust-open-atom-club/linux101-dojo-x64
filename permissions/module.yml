@@ -1,0 +1,34 @@
+name: 感知权限
+
+
+challenges:
+
+  - id: "chown"
+    name: "更改文件所有权"
+    
+  - id: "chgrp"
+    name: "组与文件"
+    
+  - id: "chgrp-random"
+    name: "有趣的组名"
+    
+  - id: "chmod-flag"
+    name: "更改权限"
+    
+  - id: "execute"
+    name: "可执行文件"
+    
+  - id: "chmod"
+    name: "权限调整练习"
+    
+  - id: "chmod-absolute"
+    name: "权限设置练习"
+    
+  - id: "setuid"
+    name: "SUID 位"
+  
+resources:
+- name: Resources
+  type: markdown
+  content: |
+    - [Chmod 计算器](https://nettools.club/chmod_calc)
