@@ -1,0 +1,21 @@
+#!/opt/pwn.college/bash
+
+read CODE < /tmp/.code
+
+if [ -z "$1" ]
+then
+	fold -s <<< "你必须将从 /challenge/get-code 获取到的退出码作为第一个参数来运行 $0："
+	echo ""
+	echo "用法: $0 [退出码]"
+	exit 1
+fi
+
+if [ "$CODE" != "$1" ]
+then
+	echo '不正确…… 请确保在运行 /challenge/get-code 后立即使用 $?。'
+	echo '你运行的任何其他命令的退出值都会覆盖掉 $? 变量！'
+	exit 1
+fi
+
+fold -s <<< "正确！这是你的 flag："
+cat /flag

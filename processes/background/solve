@@ -1,0 +1,47 @@
+#!/opt/pwn.college/bash
+
+function resumed {
+	if [[ $(ps -o stat= -p $$) == *+* ]]
+	then
+		fold -s <<< "你把我恢复到了前台！请在后台恢复我（或者按回车，我就会退出）。"
+		read A
+		exit
+	fi
+
+	echo
+	echo
+	echo
+	echo "好耶，我现在在后台运行了！因此，这段文本可能会和你的 shell 提示符奇怪地重叠在一起。"
+	echo "别慌；多按几次Enter键，把这段文字滚动上去就行了。"
+	sleep 6h
+}
+trap resumed SIGCONT
+
+[[ "$BASH_EXECUTION_STRING" == .* ]] && exec -a bash /bin/bash $BASH_SOURCE
+
+echo "只有当这个终端里已经有我的另一个正在运行（而不是被挂起的）的副本时，"
+echo "我才会给你 flag... 让我检查一下！"
+
+echo
+ps -o user=UID,pid,stat,cmd
+echo
+
+if ! ps -f | grep -v "$$" | grep -q "[s]olve"
+then
+	echo "我看不到另一个我！"
+	echo
+	echo "要通过这一关，你需要先挂起我，在后台恢复这个被挂起的进程，然后再启动一个新的我！"
+	echo "你可以用 Ctrl-Z 挂起我（并用 'bg' 在后台恢复我），或者，如果不管什么原因你不想这么做，就直接按回车，我就会退出！"
+	read A
+	exit
+fi
+
+if ps -o user=UID,pid,stat,cmd | grep -v "$$" | grep "[s]olve" | grep -q "[[:space:]]T[[:space:]]"
+then
+	echo "我找到了第二个我，但它被挂起了！"
+	echo "请用 'bg' 命令在后台恢复它，然后再运行我一次。"
+	exit
+fi
+
+fold -s <<< "好耶，我找到了另一个在后台运行的我！这是 flag："
+cat /flag

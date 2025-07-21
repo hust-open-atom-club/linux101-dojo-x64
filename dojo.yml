@@ -31,3 +31,6 @@ modules:
     
   - id: "data"
     icon: 0083_Farfetchd
+    
+  - id: "processes"
+    icon: 0122_MrMine
