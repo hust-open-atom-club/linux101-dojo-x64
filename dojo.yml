@@ -7,6 +7,8 @@ type: tools
 award:
   emoji: Bash
 
+comparator: 666
+
 modules:
   - id: "hello"
     icon: 0037_Vulpix
