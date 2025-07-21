@@ -1,0 +1,69 @@
+#!/bin/bash
+
+function step1
+{
+	BCMD=($BASH_COMMAND)
+	if [ "${BCMD[0]}" != "/challenge/pwn" ]
+	then
+		echo "你必须首先调用 '/challenge/pwn' 命令，而不是 '$BASH_COMMAND'！"
+		trap "" exit
+		exit 1
+	fi
+}
+
+function step2
+{
+	if [ ! -f /tmp/.pwn ]
+	then
+		echo "看起来 '/challenge/pwn' 没有正确运行..."
+		trap "" exit
+		exit 2
+	fi
+
+	BCMD=($BASH_COMMAND)
+	if [ "${BCMD[0]}" != "/challenge/college" ]
+	then
+		echo "你的第二个命令必须是调用 '/challenge/college' 命令，而不是 '$BASH_COMMAND'！"
+		trap "" exit
+		exit 3
+	fi
+}
+
+function step3
+{
+	BCMD=($BASH_COMMAND)
+	if [ "${BCMD[0]}" != "/challenge/college" ] # unhinged special case where the debug trap is yolo-called at the end wtf
+	then
+		echo "我欣赏你的热情，但在第二个命令之后就可以停下了！"
+		echo "而你却在尝试运行 '$BASH_COMMAND'..."
+		trap "" exit
+		exit 4
+	fi
+	trap "" debug
+}
+
+STEP_IDX=0
+function dbg
+{
+	((STEP_IDX++))
+	step$STEP_IDX
+	return $?
+}
+
+
+function final
+{
+	if [ ! -f "/tmp/.college" ]
+	then
+		echo "看起来 '/challenge/college' 没有正确运行..."
+		trap "" exit
+		exit 2
+	fi
+
+	echo "干得漂亮，你已经写出了你的第一个 shell 脚本！这是 flag："
+	cat /tmp/.$FLA-$FLB
+}
+
+unset BASH_ENV
+trap final exit
+trap dbg debug

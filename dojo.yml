@@ -42,3 +42,6 @@ modules:
     
   - id: "users"
     icon: 0104_Cubone
+    
+  - id: "chaining"
+    icon: 0039_Jigglypuff
