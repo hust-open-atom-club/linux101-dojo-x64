@@ -1,0 +1,14 @@
+#!/opt/pwn.college/bash
+
+read API_KEY < /challenge/.victim_pass
+
+if [ "$1" == "$API_KEY" ] || [ "$2" == "$API_KEY" ]
+then
+	echo "密钥正确！你想要我打印 flag 吗 (y/n)？"
+	read
+	[ "$REPLY" == "y" ] && cat /flag
+	echo
+else
+	echo "API 密钥不正确！"
+fi
+

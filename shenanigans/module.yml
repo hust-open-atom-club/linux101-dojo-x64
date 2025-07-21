@@ -1,0 +1,27 @@
+name: 巧妙的玩法
+
+challenges:
+
+  - id: "bashrc-trojan"
+    name: "Bashrc 后门"
+    
+  - id: "flag-checker-hijack"
+    name: "嗅探输入"
+    
+  - id: "writable-home-dir"
+    name: "过度共享的目录"
+    
+  - id: "writable-tmp-dir"
+    name: "链接诡计"
+    
+  - id: "process-sniffing"
+    name: "嗅探进程参数"
+    
+  - id: "config-snooping"
+    name: "窥探配置"
+    
+resources:
+- name: Resources
+  type: markdown
+  content: |
+    - none
