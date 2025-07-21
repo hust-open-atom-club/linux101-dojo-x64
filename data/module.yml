@@ -1,0 +1,37 @@
+name: 数据操作
+
+challenges:
+
+  - id: "tr"
+    name: "转换字符"
+    
+  - id: "tr-delete"
+    name: "删除字符"
+    
+  - id: "tr-delete-newlines"
+    name: "删除换行符"
+    
+  - id: "head"
+    name: "使用 head 提取前几行"
+    
+  - id: "cut"
+    name: "提取文本的特定部分"
+  
+resources:
+- name: Resources
+  type: markdown
+  content: |
+    shell 大师们用来操作数据的程序_数不胜数_。
+    每个程序都有其特定的功能，通常遵循 [Unix 哲学](https://en.wikipedia.org/wiki/Unix_philosophy)——即“只做一件事，并把它做好”。
+    你可以将这些程序串联起来，构建出非常强大的复合逻辑。
+    在你完成 Linux 基础学习并准备好之后，有一些例子值得你自行学习，它们是：
+
+    - [awk](https://linux.die.net/man/1/awk) 用于复杂的文本处理
+    - [cut](https://linux.die.net/man/1/cut) 用于提取行的部分内容
+    - [less](https://linux.die.net/man/1/less) 一个交互式的文件阅读器
+    - [more](https://linux.die.net/man/1/more) 用于一次性读取文件的部分内容
+    - [paste](https://linux.die.net/man/1/paste) 用于合并文件
+    - [sed](https://linux.die.net/man/1/sed) 用于复杂的文本操作
+    - [sort](https://linux.die.net/man/1/sort) 用于排序数据
+    - [tail](https://linux.die.net/man/1/tail) `head` 的反向操作
+    - [uniq](https://linux.die.net/man/1/uniq) 用于从数据流中筛选出唯一的行

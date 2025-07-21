@@ -15,13 +15,19 @@ modules:
     icon: 0023_Ekans
 
   - id: "commands"
-    icon: 0875_Eiscue
+    icon: 0052_Meowth
 
   - id: "man"
-    icon: 0875_Eiscue
+    icon: 0055_Golduck
     
   - id: "globbing"
+    icon: 0079_Slowpoke
   
   - id: "piping"
+    icon: 0035_Clefairy
   
   - id: "variables"
+    icon: 0058_Growlithe
+    
+  - id: "data"
+    icon: 0083_Farfetchd

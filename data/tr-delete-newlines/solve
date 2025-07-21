@@ -1,0 +1,8 @@
+#!/opt/pwn.college/bash
+
+echo "被换行符分割的 flag："
+cat /flag | while IFS= read -n1 c; do
+  printf '%s' "$c"
+  (( RANDOM % 100 < 60 )) && printf '\n'
+done
+echo
