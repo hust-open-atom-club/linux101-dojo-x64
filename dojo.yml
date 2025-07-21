@@ -6,6 +6,7 @@ type: tools
 
 award:
   emoji: Bash
+  award_at: 6
 
 comparator: 666
 
