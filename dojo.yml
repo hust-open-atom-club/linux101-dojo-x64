@@ -45,3 +45,6 @@ modules:
     
   - id: "chaining"
     icon: 0039_Jigglypuff
+    
+  - id: "path"
+    icon: 0040_Wigglytuff
