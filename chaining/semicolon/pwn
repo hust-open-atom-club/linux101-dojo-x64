@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if ls -l /proc/$$/fd/{0,1,2} | grep -vq pts
+then
+	echo -e "看起来你可能使用了管道或其他输入重定向方法来链接此命令。\n这不是本关卡的目的！\n本关卡的核心是简单地使用 ';' 来一个接一个地运行命令。" 1>&2
+	exit
+fi
+
+if [ "$1" == ";" ]
+then
+	echo "看起来你把分号放在了引号里，这会导致 shell 对它进行不同的处理。"
+	echo "请直接使用原始的分号（;）！"
+	exit
+fi
+
+touch /tmp/.pwn

@@ -1,0 +1,19 @@
+#!/opt/pwn.college/bash
+
+if ls -l /proc/$$/fd/{0,1,2} | grep -vq pts
+then
+	echo -e "看起来你可能使用了管道或其他输入重定向方法来链接我。\n在这一关中，你必须通过一个 shell 脚本来调用我！" 1>&2
+	exit 1
+fi
+
+CMDLINE=$(cat /proc/$PPID/cmdline | tr -d '\0')
+
+if [ ! -f /tmp/.good_launch ]
+then
+	echo "你必须在你的家目录中创建一个 shell 脚本来启动 /challenge/solve，"
+	echo "将它设为可执行，并且在不明确指定 'bash' 的情况下调用它！"
+	exit 3
+fi
+
+fold -s <<< "恭喜你成功执行了 shell 脚本！你的 flag 是："
+cat /flag
