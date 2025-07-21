@@ -1,0 +1,13 @@
+#!/opt/pwn.college/bash
+
+echo -n "输入 flag，受害者："
+read -r candidate
+
+echo
+if [ "$candidate" = "$(cat /flag)" ]; then
+    echo "正确！"
+    exit 0
+else
+    echo "不正确！"
+    exit 1
+fi

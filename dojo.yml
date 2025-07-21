@@ -48,3 +48,6 @@ modules:
     
   - id: "path"
     icon: 0040_Wigglytuff
+    
+  #缺少必要依赖库
+  #- id: "shenanigans"
