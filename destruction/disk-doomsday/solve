@@ -11,7 +11,7 @@ TEST_SIZE = 1 * 1024 * 1024 # 1MB
 
 def check_space_with_df():
     try:
-        command = ['df', '-PB1', '.']
+        command = ['df', '-PB1', '/home/hacker']
         result = subprocess.run(
             command,
             capture_output=True, 
