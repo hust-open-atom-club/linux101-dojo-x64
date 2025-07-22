@@ -52,3 +52,6 @@ modules:
     
   #缺少必要依赖库
   #- id: "shenanigans"
+  
+  - id: "destruction"
+    icon: 0131_Lapras

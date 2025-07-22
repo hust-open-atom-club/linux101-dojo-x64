@@ -1,0 +1,24 @@
+name: 大胆的破坏
+
+challenges:
+
+  - id: "forkbomb"
+    name: "分叉炸弹"
+    
+  - id: "disk-doomsday"
+    name: "磁盘空间末日"
+    
+  - id: "rm-rf-root"
+    name: "rm -rf /"
+    
+  - id: "rm-rf-root-read"
+    name: "rm -rf / 之后的生活"
+    
+  - id: "rm-rf-root-search"
+    name: "在 rm -rf / 之后寻找意义"
+    
+resources:
+- name: Resources
+  type: markdown
+  content: |
+    - none
