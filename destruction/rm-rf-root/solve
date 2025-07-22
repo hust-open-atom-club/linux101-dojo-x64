@@ -1,0 +1,16 @@
+#!/opt/pwn.college/python
+
+import time
+import os
+
+flag = open("/flag").read()
+
+while True:
+    if len(os.listdir("/")) > 10 or len(os.listdir("/usr")) > 3 or len(os.listdir("/etc")) > 5 or os.path.exists("/flag"):
+        print("看来你还没有清除系统！我们将在 5 秒后再次检查...")
+    else:
+        print("太棒了！你这狂野的黑客，真的把系统清除了！flag 归你了：")
+        print(flag)
+        break
+
+    time.sleep(5)
