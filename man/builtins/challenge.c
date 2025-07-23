@@ -1,6 +1,6 @@
 #include "loadables.h"
 #include "bashansi.h"
-#include <config.h>
+#include "config.h"
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdio.h>
