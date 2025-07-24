@@ -20,9 +20,8 @@ challenges:
   - id: "help"
     name: 有用的程序
   
-  #缺少必要依赖库
-  #- id: "builtins"
-    #name: 获取内建命令的帮助
+  - id: "builtins"
+    name: 获取内建命令的帮助
 
 resources:
 - name: Resources
