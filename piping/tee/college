@@ -4,7 +4,7 @@ sleep 5
 DIR=$(/bin/dirname ${BASH_SOURCE[0]})
 if ! $DIR/chio.py --check_stdin_pipe tee 2>/dev/null && ! $DIR/chio.py --check_stdin_pipe challenge_shellscript 2>/dev/null
 then
-	fold -s <<< "/challenge/secret 需要位于 /challenge/pwn（或者用于调试的 "tee"）输出的接收端。"
+	echo "/challenge/secret 需要位于 /challenge/pwn（或者用于调试的 \"tee\"）输出的接收端。"
 	exit 1
 fi
 
@@ -12,7 +12,7 @@ read SS < <(tail -n1)
 
 if [ "$SS" != "SUPERSECRET:$(tail -c+20 /flag | head -c4)" ]
 then
-	fold -s <<< "输入到 'college' 的内容不包含正确的密码！这个密码应该由 'pwn' 命令提供。提示：使用 'tee' 来截获 'pwn' 的输出，并找出所需的密码。"
+	echo -e "输入到 'college' 的内容不包含正确的密码！这个密码应该由 'pwn' 命令提供。\n提示：使用 'tee' 来截获 'pwn' 的输出，并找出所需的密码。"
 	exit 2
 fi
 
