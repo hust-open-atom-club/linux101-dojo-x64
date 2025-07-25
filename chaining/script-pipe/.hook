@@ -4,6 +4,6 @@ unset BASH_ENV
 
 if ! /challenge/.check_redir
 then
-	fold -s <<< "看起来你没有将这个脚本的输出通过管道传递给 /challenge/solve！请记住使用 '|' 将你脚本的输出传递给 /challenge/solve。" > /dev/tty
+	echo -e "错误：看起来你没有将这个脚本的输出通过管道传递给 /challenge/solve！\n请记住使用 '|' 符号来完成操作。" > /dev/tty
 	exit 1
 fi

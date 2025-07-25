@@ -7,10 +7,9 @@ challenges:
     
   - id: script
     name: 你的第一个 Shell 脚本
-  
-  #缺少必要依赖文件  
-  #- id: script-pipe
-    #name: 重定向脚本输出
+    
+  - id: script-pipe
+    name: 重定向脚本输出
     
   - id: execution
     name: 可执行的 Shell 脚本
