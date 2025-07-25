@@ -21,7 +21,7 @@ logout
 hacker@dojo:~$
 ```
 
-回顾一下上一关，由于 `hacker` 用户对 `/tmp/collab` 拥有写权限，他可以替换掉那个 `evil-commands.txt` 文件。同时，也回想一下[理解命令](../commands)模块的内容，文件可以*链接*到其他文件。如果 `hacker` 将 `evil-commands.txt` 替换为一个指向某个 Zardus 可以写入的敏感文件的符号链接，会发生什么呢？混乱和花样玩法！
+回顾一下上一关，由于 `hacker` 用户对 `/tmp/collab` 拥有写权限，他可以替换掉那个 `evil-commands.txt` 文件。同时，也回想一下[深入理解命令](./commands)模块的内容，文件可以*链接*到其他文件。如果 `hacker` 将 `evil-commands.txt` 替换为一个指向某个 Zardus 可以写入的敏感文件的符号链接，会发生什么呢？混乱和花样玩法！
 
 你*知道*要链接到哪个文件。实施这次攻击，并获取 `/flag` 吧（在这一关里，Zardus 又可以读取这个文件了！）。
 
@@ -44,4 +44,4 @@ hacker@dojo:~$
 zardus@dojo:~$ chmod +t /tmp/collab
 ```
 
-当然，像对所有人可写的目录这样的共享资源仍然是危险的。在很久以后，在绿带课程的[竞争条件](../../system-security/race-conditions)部分，你会看到这类资源可以引发安全问题的多种方式！
+当然，像对所有人可写的目录这样的共享资源仍然是危险的。
