@@ -50,8 +50,8 @@ modules:
   - id: "path"
     icon: 0040_Wigglytuff
     
-  #缺少必要依赖库
-  #- id: "shenanigans"
+  - id: "shenanigans"
+    icon: 0105_Marowak
   
   - id: "destruction"
     icon: 0131_Lapras
