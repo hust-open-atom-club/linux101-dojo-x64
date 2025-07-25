@@ -5,39 +5,32 @@ challenges:
   - id: "echo"
     name: "重定向输出"
   
-  #缺少必要依赖库
-  #- id: "stdout-myflag"
-    #name: "重定向更多输出"
+  - id: "stdout-myflag"
+    name: "重定向更多输出"
   
-  #缺少必要依赖库
-  #- id: "append"
-    #name: "追加输出"
+  - id: "append"
+    name: "追加输出"
   
-  #缺少必要依赖库
-  #- id: "stderr-myflag"
-    #name: "重定向错误"
+  - id: "stderr-myflag"
+    name: "重定向错误"
   
   - id: "stdin"
     name: "重定向输入"
   
-  #缺少必要依赖库
-  #- id: "redir-then-grep"
-    #name: "搜索已存储的结果"
+  - id: "redir-then-grep"
+    name: "搜索已存储的结果"
   
-  #缺少必要依赖库
-  #- id: "pipe-grep"
-    #name: "搜索实时输出"
+  - id: "pipe-grep"
+    name: "搜索实时输出"
   
-  #缺少必要依赖库
-  #- id: "stderr-grep"
-    #name: "搜索错误信息"
+  - id: "stderr-grep"
+    name: "搜索错误信息"
   
   - id: "grep-invert"
     name: "使用 grep -v 进行过滤"
   
-  #缺少必要依赖库
-  #- id: "tee"
-    #name: "使用 tee 复制管道数据"
+  - id: "tee"
+    name: "使用 tee 复制管道数据"
   
   - id: "procsub-write"
     name: "写入到多个程序"
