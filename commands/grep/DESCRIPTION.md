@@ -13,4 +13,4 @@ hacker@dojo:~$ grep SEARCH_STRING /path/to/file
 在这个挑战中，我在 `/challenge/data.txt` 文件中放入了十万行的文本。
 使用 `grep` 来查找flag吧！
 
-提示：flag总是以 `pwn.hust.college` 开头。
+提示：flag总是以 `pwn.college` 开头。
