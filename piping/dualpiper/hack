@@ -7,7 +7,7 @@ fi
 
 if [ -t 1 ] || [ -f /dev/fd/1 ]
 then
-	fold -s <<< "你必须将我的标准输出重定向到 '/challenge/planet'！"
+	echo "你必须将我的标准输出重定向到 '/challenge/planet'！"
 else
 	printf "这些机密数据必须通过我的标准输出直接送达 /challenge/planet。\n不要试图复制粘贴它；它变化得太快了。\n"
 	cat /challenge/.challenge-key-stdout

@@ -31,8 +31,8 @@ END
 
 if [ -f /home/hacker/delete_me ]
 then
-	fold -s <<< "/home/hacker/delete_me 似乎仍然存在！请用 rm 命令删除它。"
+	echo "/home/hacker/delete_me 似乎仍然存在！请用 rm 命令删除它。"
 else
-	fold -s <<< "删除成功。这里是你的奖励："
+	echo "删除成功。这里是你的奖励："
 	cat /flag
 fi

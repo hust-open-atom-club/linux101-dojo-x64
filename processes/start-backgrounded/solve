@@ -13,5 +13,5 @@ echo
 echo "好耶，你在后台启动了我！"
 echo "因此，这段文本可能会和你的 shell 提示符奇怪地重叠在一起，不过你现在应该已经习惯了……"
 echo
-fold -s <<< "总之！这是你的 flag！"
+echo "总之！这是你的 flag！"
 cat /flag

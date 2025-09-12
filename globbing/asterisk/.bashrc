@@ -7,14 +7,14 @@ function check_cd {
 		if [ ! -f "/tmp/.good_cd" ]
 		then
 			cd
-			fold -s <<< "除非你正确地切换目录,否则此挑战会将你的工作目录重置为/home/hacker..."
+			echo "除非你正确地切换目录,否则此挑战会将你的工作目录重置为/home/hacker..."
 		fi
 		return 0
 	fi
 
 	if [ "${#ARG}" -gt 4 ]
 	then
-		fold -s <<< "你为 '$CMD' 命令指定的路径超过了 4 个字符.这是不允许的!"
+		echo "你为 '$CMD' 命令指定的路径超过了 4 个字符.这是不允许的!"
 		return 1
 	fi
 

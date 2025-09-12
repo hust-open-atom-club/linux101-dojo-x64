@@ -4,7 +4,7 @@ read CODE < /tmp/.code
 
 if [ -z "$1" ]
 then
-	fold -s <<< "你必须将从 /challenge/get-code 获取到的退出码作为第一个参数来运行 $0："
+	echo "你必须将从 /challenge/get-code 获取到的退出码作为第一个参数来运行 $0："
 	echo ""
 	echo "用法: $0 [退出码]"
 	exit 1
@@ -17,5 +17,5 @@ then
 	exit 1
 fi
 
-fold -s <<< "正确！这是你的 flag："
+echo "正确！这是你的 flag："
 cat /flag

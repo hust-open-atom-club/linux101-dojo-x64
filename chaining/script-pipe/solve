@@ -8,13 +8,13 @@ read REAL_SECRET2 < <( ( tail -c+17 /flag; cat /tmp/.pwn-secret ) | md5sum )
 
 if [ "$SECRET1" != "$REAL_SECRET1" ]
 then
-	fold -s <<< "从 /challenge/pwn 管道传输的数据与我预期的不符。每当你在 shell 中输入新的一行时，我都会重新随机化数据，所以你必须一次性成功！请确保将你脚本的输出通过管道传递给 /challenge/solve。"
+	echo "从 /challenge/pwn 管道传输的数据与我预期的不符。每当你在 shell 中输入新的一行时，我都会重新随机化数据，所以你必须一次性成功！请确保将你脚本的输出通过管道传递给 /challenge/solve。"
 	exit 1
 fi
 
 if [ "$SECRET2" != "$REAL_SECRET2" ]
 then
-	fold -s <<< "从 /challenge/college 管道传输的数据与我预期的不符。每当你在 shell 中输入新的一行时，我都会重新随机化数据，所以你必须一次性成功！请确保将你脚本的输出通过管道传递给 /challenge/solve。"
+	echo "从 /challenge/college 管道传输的数据与我预期的不符。每当你在 shell 中输入新的一行时，我都会重新随机化数据，所以你必须一次性成功！请确保将你脚本的输出通过管道传递给 /challenge/solve。"
 	exit 2
 fi
 

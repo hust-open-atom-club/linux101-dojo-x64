@@ -10,7 +10,7 @@ fi
 
 if [ "$(realpath $2)" != "/challenge/getroot" ]
 then
-	fold -s <<< "本次挑战限制 chmod 只能对 /challenge/getroot 生效！你不能在本挑战中对任何其他文件使用 chmod。"
+	echo "本次挑战限制 chmod 只能对 /challenge/getroot 生效！你不能在本挑战中对任何其他文件使用 chmod。"
 	exit 2
 fi
 

@@ -6,7 +6,7 @@ then
 	echo "这将默认尝试切换到'root'用户，而这在本挑战中是无法实现的。"
 elif [ "$1" != "zardus" ]
 then
-	fold -s <<< "警告：您正在调用'su'但未指定'zardus'用户。"
+	echo "警告：您正在调用'su'但未指定'zardus'用户。"
 fi
 
 exec -a su su-real "$@"
