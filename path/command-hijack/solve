@@ -1,6 +1,6 @@
 #!/opt/pwn.college/bash
 
-/bin/fold -s <<< "正在尝试移除 /flag..."
+echo "正在尝试移除 /flag..."
 
 RM=$(which rm 2>/dev/null)
 [ -n "$RM" ] && echo "在 $RM 处找到了 'rm' 命令。正在执行！"
@@ -8,5 +8,5 @@ rm -f /flag
 
 if ! [ -f /flag ]
 then
-	/bin/fold -s <<< "哦哦，看来我成功移除了 flag！这意味着你没有正确设置 PATH 来阻止我找到 'rm'。既然 flag 已经没了，你需要从模块页面重新启动挑战！下次好运。"
+	echo "哦哦，看来我成功移除了 flag！这意味着你没有正确设置 PATH 来阻止我找到 'rm'。既然 flag 已经没了，你需要从模块页面重新启动挑战！下次好运。"
 fi

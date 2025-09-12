@@ -15,5 +15,5 @@ then
 	exit 3
 fi
 
-fold -s <<< "恭喜你成功执行了 shell 脚本！你的 flag 是："
+echo "恭喜你成功执行了 shell 脚本！你的 flag 是："
 cat /flag

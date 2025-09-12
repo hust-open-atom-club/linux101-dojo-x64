@@ -2,4 +2,4 @@
 
 echo "bash: $(basename $0): command not found"
 echo
-fold -s <<< "你在赋值语句的 = 两边加了空格！这导致 shell 将其理解为执行 $(basename $0) 命令，而不是按你的意图将其赋值给环境变量。请去掉 = 两边的空格后重试！"
+echo "你在赋值语句的 = 两边加了空格！这导致 shell 将其理解为执行 $(basename $0) 命令，而不是按你的意图将其赋值给环境变量。请去掉 = 两边的空格后重试！"

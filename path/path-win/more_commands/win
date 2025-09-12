@@ -2,9 +2,9 @@
 
 if [ "$UID" -ne 0 ]
 then
-	/bin/fold -s <<< "看起来 'win' 的启动方式不正确。不要直接启动它；它必须由 /challenge/solve 来启动！"
+	echo "看起来 'win' 的启动方式不正确。不要直接启动它；它必须由 /challenge/solve 来启动！"
 	exit 1
 fi
 
-/bin/fold -s <<< "恭喜！你正确地设置了 PATH，'win' 已经启动了！"
+echo "恭喜！你正确地设置了 PATH，'win' 已经启动了！"
 /bin/cat /flag

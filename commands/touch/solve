@@ -38,13 +38,13 @@ END
 
 if [ ! -f /tmp/pwn ]
 then
-	fold -s <<< "不对劲！/tmp/pwn 不存在。请使用 'touch' 命令创建它！"
+	echo "不对劲！/tmp/pwn 不存在。请使用 'touch' 命令创建它！"
 	exit 1
 fi
 
 if [ ! -f /tmp/college ]
 then
-	fold -s <<< "不对劲！/tmp/college 不存在。请使用 'touch' 命令创建它！"
+	echo "不对劲！/tmp/college 不存在。请使用 'touch' 命令创建它！"
 	exit 2
 fi
 

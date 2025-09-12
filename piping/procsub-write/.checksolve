@@ -7,6 +7,6 @@ read PLANET < /challenge/.planet
 
 if [ "$THE" == "$PLANET" ]
 then
-	fold -s <<< "恭喜，你已成功将数据复制并输入到两个程序中！这是你的flag:"
+	echo "恭喜，你已成功将数据复制并输入到两个程序中！这是你的flag:"
 	cat /flag
 fi

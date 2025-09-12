@@ -10,7 +10,7 @@ echo
 
 if ps -f | grep -v "$$" | grep -q "[s]olve"
 then
-	fold -s <<< "好耶，我找到了另一个我！这是 flag："
+	echo "好耶，我找到了另一个我！这是 flag："
 	cat /flag
 	exit
 fi

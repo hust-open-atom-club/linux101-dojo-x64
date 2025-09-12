@@ -3,7 +3,7 @@
 function resumed {
 	if [[ $(ps -o stat= -p $$) == *+* ]]
 	then
-		fold -s <<< "你把我恢复到了前台！请在后台恢复我（或者按回车，我就会退出）。"
+		echo "你把我恢复到了前台！请在后台恢复我（或者按回车，我就会退出）。"
 		read A
 		exit
 	fi
@@ -43,5 +43,5 @@ then
 	exit
 fi
 
-fold -s <<< "好耶，我找到了另一个在后台运行的我！这是 flag："
+echo "好耶，我找到了另一个在后台运行的我！这是 flag："
 cat /flag

@@ -1,9 +1,9 @@
 #!/opt/pwn.college/bash
 
 function win {
-	fold -s <<< "我回来了！这是你的 flag："
+	echo "我回来了！这是你的 flag："
 	cat /flag
-	fold -s <<< "别忘了按回车来退出我！"
+	echo "别忘了按回车来退出我！"
 }
 
 trap win SIGCONT

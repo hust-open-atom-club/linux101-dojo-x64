@@ -2,39 +2,39 @@
 #
 if [ "$1" == "" ]
 then
-	fold -s <<< "看起来你调用了这个命令，但没有提供参数。请使用单个参数 'hackers' 调用这个命令！"
+	echo "看起来你调用了这个命令，但没有提供参数。请使用单个参数 'hackers' 调用这个命令！"
 	exit 1
 fi
 
 if [ "$BASH_ARGC" -ne 1 ]
 then
-	fold -s <<< "看起来你调用了这个命令，但提供了多个参数。请仅使用一个参数 'hackers' 调用这个命令！"
+	echo "看起来你调用了这个命令，但提供了多个参数。请仅使用一个参数 'hackers' 调用这个命令！"
 	exit 1
 fi
 
 if [ "$1" == "world" ]
 then
-	fold -s <<< "我们可没那么传统！记得向黑客们问好，而不是向世界 :-) "
+	echo "我们可没那么传统！记得向黑客们问好，而不是向世界 :-) "
 	exit 2
 fi
 
 if [ "${1,,}" == "hackers" ] && [ "$1" != "hackers" ]
 then
-	fold -s <<< "和命令本身一样，大多数参数区分大小写（虽然这取决于命令及其对参数的使用方式）。请确保传递小写的 'hackers' 给这个命令！"
+	echo "和命令本身一样，大多数参数区分大小写（虽然这取决于命令及其对参数的使用方式）。请确保传递小写的 'hackers' 给这个命令！"
 	exit 3
 fi
 
 if [ "${1,,}" == "hackers!" ]
 then
-	fold -s <<< "别那么激动！调用我时不要带感叹号。"
+	echo "别那么激动！调用我时不要带感叹号。"
 	exit 4
 fi
 
 if [ "$1" != "hackers" ]
 then
-	fold -s <<< "请使用参数 'hackers' 来运行此命令（而不是 '$1'）。"
+	echo "请使用参数 'hackers' 来运行此命令（而不是 '$1'）。"
 	exit 5
 fi
 
-fold -s <<< "成功！这是你的 flag："
+echo "成功！这是你的 flag："
 cat /flag

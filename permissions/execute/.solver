@@ -4,9 +4,9 @@ CMDLINE=$(cat /proc/$PPID/cmdline | tr -d '\0')
 
 if [ "$CMDLINE" != "/bin/bash/challenge/solve" ] && [ "$CMDLINE" != "/bin/bash./solve" ]
 then
-	fold -s <<< "你必须通过 /challenge/solve 来调用我，才能解决这个挑战。"
+	echo "你必须通过 /challenge/solve 来调用我，才能解决这个挑战。"
 	exit 1
 fi
 
-fold -s <<< "执行成功！这是你的 flag："
+echo "执行成功！这是你的 flag："
 cat /flag

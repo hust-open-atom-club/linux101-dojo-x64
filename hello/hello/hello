@@ -1,4 +1,4 @@
 #!/opt/pwn.college/bash
 
-fold -s <<< "成功！这是你的 flag："
+echo "成功！这是你的 flag："
 cat /flag

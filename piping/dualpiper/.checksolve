@@ -7,6 +7,6 @@ read PLANET < /challenge/.planet
 
 if [ "$THE" == "$PLANET" ]
 then
-	fold -s <<< "恭喜,你学会了一项连专家都感到棘手的重定向技术!这是你的flag:"
+	echo "恭喜,你学会了一项连专家都感到棘手的重定向技术!这是你的flag:"
 	cat /flag
 fi

@@ -7,14 +7,14 @@ function check_cd {
 		if [ ! -f "/tmp/.good_cd" ]
 		then
 			cd
-			fold -s <<< "除非你正确地切换目录,否则此挑战会将你的工作目录重置为/home/hacker..."
+			echo "除非你正确地切换目录,否则此挑战会将你的工作目录重置为/home/hacker..."
 		fi
 		return 0
 	fi
 
 	if [[ "$ARG" == *[cl*]* ]]
 	then
-		fold -s <<< "你使用了 'c'、'l' 或 '*' 字符。这是不允许的！"
+		echo "你使用了 'c'、'l' 或 '*' 字符。这是不允许的！"
 		return 1
 	fi
 

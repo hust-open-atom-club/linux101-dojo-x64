@@ -6,5 +6,5 @@ then
 	exit 1
 fi
 
-fold -s <<< "这些机密数据必须直接且同时地送达 /challenge/the 和 /challenge/planet。不要试图复制粘贴它；它变化得太快了。"
+echo "这些机密数据必须直接且同时地送达 /challenge/the 和 /challenge/planet。不要试图复制粘贴它；它变化得太快了。"
 cat /challenge/.challenge-key

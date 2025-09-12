@@ -1,4 +1,4 @@
 #!/opt/pwn.college/bash
 
-fold -s <<< "成功！你已经为这个程序设置了 suid 位，现在它正以 root 身份运行！这是你的 shell……"
+echo "成功！你已经为这个程序设置了 suid 位，现在它正以 root 身份运行！这是你的 shell……"
 exec /bin/bash
